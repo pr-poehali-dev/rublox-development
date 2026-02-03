@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
+  const [currentSection, setCurrentSection] = useState('home');
 
   const mostPlayed = [
     { id: 1, title: '3D Sprunki', image: 'https://cdn.poehali.dev/files/7343a25d-299b-47ca-9872-4a1bcb1c9292.jpg', hours: 12 },
@@ -48,66 +49,65 @@ const Index = () => {
   return (
     <div className="min-h-screen flex">
       <aside className="w-[200px] bg-sidebar border-r border-sidebar-border flex flex-col">
-        <div className="p-4 border-b border-sidebar-border flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold">
-            VS
-          </div>
-          <span className="text-sm font-medium text-sidebar-foreground">Venom_Sprun...</span>
+        <div className="p-4 border-b border-sidebar-border">
+          <Button variant="outline" className="w-full">
+            Войти
+          </Button>
         </div>
 
         <nav className="flex-1 py-4">
           <div className="space-y-1 px-3">
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('home')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'home' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Home" size={18} />
               <span className="text-sm font-medium">Home</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('profile')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'profile' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="User" size={18} />
               <span className="text-sm font-medium">Profile</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('messages')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'messages' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="MessageSquare" size={18} />
               <span className="text-sm font-medium">Messages</span>
               <Badge variant="secondary" className="ml-auto">2</Badge>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('connect')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'connect' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Users" size={18} />
               <span className="text-sm font-medium">Connect</span>
               <Badge variant="secondary" className="ml-auto">595</Badge>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('avatar')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'avatar' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="UserCircle" size={18} />
               <span className="text-sm font-medium">Avatar</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('sandbox')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'sandbox' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Boxes" size={18} />
               <span className="text-sm font-medium">Sandbox</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('inventory')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'inventory' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Package" size={18} />
               <span className="text-sm font-medium">Inventory</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('trade')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'trade' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Repeat" size={18} />
               <span className="text-sm font-medium">Trade</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('transactions')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'transactions' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Receipt" size={18} />
               <span className="text-sm font-medium">Transactions</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('communities')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'communities' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Layers" size={18} />
               <span className="text-sm font-medium">Communities</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('themes')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'themes' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Palette" size={18} />
               <span className="text-sm font-medium">Themes</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('premium')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'premium' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="Crown" size={18} />
               <span className="text-sm font-medium">Premium</span>
             </button>
-            <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors">
+            <button onClick={() => setCurrentSection('blog')} className={`w-full flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground transition-colors ${currentSection === 'blog' ? 'bg-sidebar-accent' : ''}`}>
               <Icon name="BookOpen" size={18} />
               <span className="text-sm font-medium">Blog</span>
             </button>
@@ -124,7 +124,7 @@ const Index = () => {
       <div className="flex-1 flex flex-col">
         <header className="h-14 border-b border-border bg-card flex items-center justify-between px-6">
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-foreground">ROBLOX</h1>
+            <h1 className="text-2xl font-bold text-foreground">RUBLOX</h1>
           </div>
 
           <nav className="flex items-center gap-6">
@@ -162,26 +162,26 @@ const Index = () => {
                 className="w-[300px] pl-10 bg-secondary border-input"
               />
             </div>
-            <button className="hover:bg-secondary p-2 rounded-md transition-colors">
+            <button onClick={() => alert('Уведомления')} className="hover:bg-secondary p-2 rounded-md transition-colors">
               <Icon name="Bell" size={20} />
             </button>
-            <button className="hover:bg-secondary p-2 rounded-md transition-colors">
+            <button onClick={() => setCurrentSection('connect')} className="hover:bg-secondary p-2 rounded-md transition-colors">
               <Icon name="Users" size={20} />
             </button>
-            <button className="hover:bg-secondary p-2 rounded-md transition-colors">
+            <button onClick={() => alert('Магазин')} className="hover:bg-secondary p-2 rounded-md transition-colors">
               <Icon name="ShoppingBag" size={20} />
             </button>
-            <button className="hover:bg-secondary p-2 rounded-md transition-colors">
+            <button onClick={() => alert('Robux: 92')} className="hover:bg-secondary p-2 rounded-md transition-colors">
               <Icon name="CircleDollarSign" size={20} />
               <span className="text-xs font-semibold ml-1">92</span>
             </button>
-            <button className="hover:bg-secondary p-2 rounded-md transition-colors">
+            <button onClick={() => alert('Настройки')} className="hover:bg-secondary p-2 rounded-md transition-colors">
               <Icon name="Settings" size={20} />
             </button>
-            <button className="hover:bg-secondary p-2 rounded-md transition-colors">
+            <button onClick={() => alert('Язык')} className="hover:bg-secondary p-2 rounded-md transition-colors">
               <Icon name="Globe" size={20} />
             </button>
-            <button className="hover:bg-secondary p-2 rounded-md transition-colors">
+            <button onClick={() => alert('Меню')} className="hover:bg-secondary p-2 rounded-md transition-colors">
               <Icon name="Menu" size={20} />
             </button>
           </div>
