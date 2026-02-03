@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -51,10 +49,9 @@ const Index = () => {
     <div className="min-h-screen flex">
       <aside className="w-[200px] bg-sidebar border-r border-sidebar-border flex flex-col">
         <div className="p-4 border-b border-sidebar-border flex items-center gap-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://cdn.poehali.dev/files/7343a25d-299b-47ca-9872-4a1bcb1c9292.jpg" />
-            <AvatarFallback>VS</AvatarFallback>
-          </Avatar>
+          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold">
+            VS
+          </div>
           <span className="text-sm font-medium text-sidebar-foreground">Venom_Sprun...</span>
         </div>
 
@@ -190,7 +187,7 @@ const Index = () => {
           </div>
         </header>
 
-        <ScrollArea className="flex-1">
+        <div className="flex-1 overflow-y-auto">
           <main className="p-6 space-y-8">
             <div className="flex items-center justify-between">
               <h2 className="text-3xl font-bold">Home</h2>
@@ -304,7 +301,7 @@ const Index = () => {
               </div>
             </section>
           </main>
-        </ScrollArea>
+        </div>
       </div>
     </div>
   );
